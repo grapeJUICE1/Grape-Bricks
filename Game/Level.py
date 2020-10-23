@@ -1,4 +1,5 @@
 import os
+from random import choice
 import fileinput
 import pygame
 
@@ -32,7 +33,8 @@ class Level(GameObject):
         for line in fileinput.input(os.path.join("Assets" , "Levels" , "level"+str(self.__currentLevel)+".dat")):
             for brick in line:
                 if brick == "1":
-                    brick = Brick((x,y) , pygame.transform.scale(pygame.image.load(GameConstant.SPRITE_STADARD_BRICK) , GameConstant.BRICK_SIZE) , self.__game)
+                    brick = choice(["Green" , "Red" ,"Purple"])
+                    brick = Brick((x,y) , pygame.transform.scale(pygame.image.load(os.path.join("Assets" , f"{brick}.png")) , GameConstant.BRICK_SIZE) , self.__game , brick)
                     self.__bricks.append(brick)
                     self.__amountOfBricksLeft += 1
 

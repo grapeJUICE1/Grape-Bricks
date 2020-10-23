@@ -16,6 +16,9 @@ class GameObject:
     def getSprite(self):
         return self.__sprite
 
+    def setSprite(self , sprite):
+        self.__sprite =  sprite
+
     def __intersectsY(self, other):
         otherPosition = other.getPosition()
         otherSize = other.getSize()

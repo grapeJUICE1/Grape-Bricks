@@ -1,3 +1,4 @@
+import os
 import pygame
 from Game.Scenes.Scene import Scene
 from Game.Shared import GameConstant
@@ -23,6 +24,20 @@ class PlayingGameScene(Scene):
 
             for brick in game.getLevel().getBricks():
                 if not brick.isDestroyed() and ball.intersects(brick):
+                    if brick.getColor() != None:
+                        if brick.getTimeHit() > 1:
+                            ball.changeDirection(brick)
+                            game.playSound(brick.getHitSound())
+                            brick.hit()
+                            game.increaseScore(brick.getHitPoints())
+                            break
+
+                        ball.changeDirection(brick)
+                        brick.increseHit()
+                        game.playSound(brick.getHitSound())
+                        brick.setSprite(pygame.transform.scale(pygame.image.load(os.path.join("Assets" , f"{brick.getColor()}Broken.png")) , GameConstant.BRICK_SIZE))
+                        break
+
                     ball.changeDirection(brick)
                     game.playSound(brick.getHitSound())
                     brick.hit()
