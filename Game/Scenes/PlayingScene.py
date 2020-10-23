@@ -23,10 +23,10 @@ class PlayingGameScene(Scene):
 
             for brick in game.getLevel().getBricks():
                 if not brick.isDestroyed() and ball.intersects(brick):
+                    ball.changeDirection(brick)
                     game.playSound(brick.getHitSound())
                     brick.hit()
                     game.increaseScore(brick.getHitPoints())
-                    ball.changeDirection(brick)
                     break
 
             if ball.intersects(pad):

@@ -38,5 +38,10 @@ class GameOverScene(Scene):
                 game.changeScene(GameConstant.HIGH_SCORE_SCENE)
 
             elif event.type == pygame.KEYDOWN:
-                if event.key >= 65 and event.key <= 122:
-                    self.__playerName += chr(event.key)
+                currKey = event.key
+                if currKey >= 65 and currKey <= 122:
+                    self.__playerName += chr(currKey)
+                elif event.key == pygame.K_BACKSPACE:
+                    st =  self.__playerName
+                    st = st[:-1]
+                    self.__playerName = st

@@ -2,7 +2,7 @@ import os
 
 class GameConstant:
     BG = os.path.join("Assets" , "background.png")
-    SPRITE_STADARD_BRICK = os.path.join("Assets" , "standard.png")
+    SPRITE_STADARD_BRICK = os.path.join("Assets" , "Green.png")
     SPRITE_LIFE_BRICK = os.path.join("Assets" , "life.png")
     SPRITE_SPEED_BRICK = os.path.join("Assets" , "speed.png")
     SPRITE_BALL = os.path.join("Assets" , "ball.png")
