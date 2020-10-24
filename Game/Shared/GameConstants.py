@@ -10,6 +10,7 @@ class GameConstant:
     SPRITE_HIGHSCORE = os.path.join("Assets", "highscore.png")
 
     BRICK_SIZE = (80 , 25)
+    SMALL_BRICK_SIZE = (30 , 25)
     BALL_SIZE = (11 , 11)
     PAD_SIZE = [130 , 13]
     SCREEN_SIZE = (800 , 600)

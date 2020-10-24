@@ -25,15 +25,14 @@ class PlayingGameScene(Scene):
             for brick in game.getLevel().getBricks():
                 if not brick.isDestroyed() and ball.intersects(brick):
                     if brick.getColor() != None:
+                        brick.increseHit()
                         if brick.getTimeHit() > 1:
                             ball.changeDirection(brick)
                             game.playSound(brick.getHitSound())
                             brick.hit()
                             game.increaseScore(brick.getHitPoints())
                             break
-
                         ball.changeDirection(brick)
-                        brick.increseHit()
                         game.playSound(brick.getHitSound())
                         brick.setSprite(pygame.transform.scale(pygame.image.load(os.path.join("Assets" , f"{brick.getColor()}Broken.png")) , GameConstant.BRICK_SIZE))
                         break
@@ -56,7 +55,7 @@ class PlayingGameScene(Scene):
 
         for brick in game.getLevel().getBricks():
             if not brick.isDestroyed():
-                game.screen.blit(brick.getSprite() , brick.getPosition())
+                game.screen.blit(brick.getSprite().convert_alpha() , brick.getPosition())
 
 
         pad.setPosition((pygame.mouse.get_pos()[0] , pad.getPosition()[1]))

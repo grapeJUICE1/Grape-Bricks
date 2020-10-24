@@ -6,13 +6,13 @@ from Game.Shared import *
 
 class Breakout:
     def __init__(self):
-        self.__lives = 1
+        self.__lives = 5
         self.__score = 0
 
         self.__level  = Level(self)
         self.__level.load(0)
 
-        self.__pad = Pad((GameConstant.SCREEN_SIZE[0]/2,GameConstant.SCREEN_SIZE[1] - GameConstant.PAD_SIZE[1]),pygame.image.load(GameConstant.SPRITE_PAD))
+        self.__pad = Pad((GameConstant.SCREEN_SIZE[0]/2,GameConstant.SCREEN_SIZE[1] - GameConstant.PAD_SIZE[1]),pygame.transform.scale(pygame.image.load(GameConstant.SPRITE_PAD) , GameConstant.PAD_SIZE))
         self.__balls = [
             Ball((400,400) , pygame.transform.scale(pygame.image.load(GameConstant.SPRITE_BALL) , GameConstant.BALL_SIZE) ,self)
                     ]
@@ -91,6 +91,7 @@ class Breakout:
     def reset(self):
         self.__score = 0
         self.__lives = 5
+        self.__level.reset()
         self.__level.load(0)
 
 Breakout().start()

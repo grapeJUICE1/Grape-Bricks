@@ -26,14 +26,17 @@ class Level(GameObject):
 
     def loadNextLevel(self):
         pass
-
+    def reset(self):
+        self.__bricks = []
+        self.__amountOfBricksLeft = 0
+        self.__currentLevel = 0
     def load(self , level):
         self.__currentLevel = 0
         x,y = 0,0
         for line in fileinput.input(os.path.join("Assets" , "Levels" , "level"+str(self.__currentLevel)+".dat")):
             for brick in line:
                 if brick == "1":
-                    color = choice(["Green" , "Red" ,"Purple"])
+                    color = choice(["Green" , "Red" ,"Purple" , "Blue" , "Golden" , "LightBlue" , "Yellow" , "DarkGreen" , "Grey" , "Brown"])
                     brick = Brick((x,y) , pygame.transform.scale(pygame.image.load(os.path.join("Assets" , f"{color}.png")) , GameConstant.BRICK_SIZE) , self.__game , color)
                     self.__bricks.append(brick)
                     self.__amountOfBricksLeft += 1
@@ -50,7 +53,7 @@ class Level(GameObject):
                     self.__amountOfBricksLeft += 1
                 elif brick == "4":
                     color = choice(["small-green" ,  "small-purple" , "small-red" , "small-blue"])
-                    brick = LifeBrick((x,y) , pygame.transform.scale(pygame.image.load(os.path.join("Assets" , f"{color}.png")) , GameConstant.BRICK_SIZE) , self.__game)
+                    brick = Brick((x,y) , pygame.transform.scale(pygame.image.load(os.path.join("Assets" , f"{color}.png")) , GameConstant.SMALL_BRICK_SIZE) , self.__game)
                     self.__bricks.append(brick)
                     self.__amountOfBricksLeft += 1
 
