@@ -13,6 +13,12 @@ class PlayingGameScene(Scene):
         super(PlayingGameScene,self).render()
 
         game = self.getGame()
+        level = game.getLevel()
+        if level.getAmountOfBricksLeft() <= 0:
+            for ball in balls:
+                ball.setMotion(0)
+
+            level.loadNextLevel()
         if game.getLives() <= 0:
             game.playSound(GameConstant.SOUND_GAMEOVER)
             game.changeScene(GameConstant.GAME_OVER_SCENE)

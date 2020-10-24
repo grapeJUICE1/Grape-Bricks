@@ -7,13 +7,15 @@ class GameConstant:
     SPRITE_SPEED_BRICK = os.path.join("Assets" , "speed.png")
     SPRITE_BALL = os.path.join("Assets" , "ball.png")
     SPRITE_PAD = os.path.join("Assets" , "pad.png")
+    SPRITE_MENU = os.path.join("Assets" , "Menu.png")
+    SPRITE_MENU_SIZE = (276,276)
     SPRITE_HIGHSCORE = os.path.join("Assets", "highscore.png")
 
-    BRICK_SIZE = (80 , 25)
-    SMALL_BRICK_SIZE = (30 , 25)
+    BRICK_SIZE = (40 , 25)
+    SMALL_BRICK_SIZE = (20 , 25)
     BALL_SIZE = (11 , 11)
     PAD_SIZE = [130 , 13]
-    SCREEN_SIZE = (800 , 600)
+    SCREEN_SIZE = (840 , 600)
 
     BALL_SPEED  = 3
 

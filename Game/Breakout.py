@@ -34,7 +34,7 @@ class Breakout:
             MenuScene(self)
 
             )
-        self.__currentScene = 0
+        self.__currentScene = 3
         self.__sounds = (
             pygame.mixer.Sound(GameConstant.SOUND_FILE_GAMEOVER),
             pygame.mixer.Sound(GameConstant.SOUND_FILE_HIT_BRICK),
@@ -50,7 +50,6 @@ class Breakout:
             self.__clock.tick(60)
             self.screen.fill((0,0,0))
             self.screen.blit( self.bg, (0,0))
-
             currentScene = self.__scenes[self.__currentScene]
             currentScene.handleEvents(pygame.event.get())
             currentScene.render()
