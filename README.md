@@ -12,7 +12,7 @@ It works like normal breakout and has some functionalities you'd expect for exam
 
 ## Running The Game
 
-To run this game ... All you gotta do is download this repository , go to Game folder and then run Breakout.py...
+To run the game ... All you gotta do is download this repository , go to Game folder and then run Breakout.py...
 
 > Note that you would need python and pygame installed in your system
 
